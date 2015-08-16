@@ -22,10 +22,20 @@ class Book < ActiveRecord::Base
     Rails.logger.info "Book is deleted: #{book.attributes.inspect}"
   end
 
+  after_destroy if: :high_price? do |book|
+    Rails.logger.warn "Book with high price id deleted: #{book.attributes.inspect}"
+    Rails.logger.warn "Plese check!!"
+  end
+
   private
+
   def add_lovely_to_cat
     self.name = self.name.gsub(/Cat/) do |matched|
       "lovely #{matched}"
     end
+  end
+
+  def high_price?
+    self.price >= 5000
   end
 end
