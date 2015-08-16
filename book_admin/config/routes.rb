@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'profile/show'
-
-  get 'profile/edit'
-
-  get 'profile/update'
+  resource :profile
 
   get "/books/:id" => "books#show"
   resources :publishers do
