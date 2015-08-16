@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
-
-  get 'profiles/edit'
-
-  get 'profiles/update'
-
   resource :profile, only: %i{show edit update}
 
   get "/books/:id" => "books#show"
