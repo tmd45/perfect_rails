@@ -17,6 +17,11 @@ class Book < ActiveRecord::Base
   end
 
   before_validation :add_lovely_to_cat
+
+  after_destroy do |book|
+    Rails.logger.info "Book is deleted: #{book.attributes.inspect}"
+  end
+
   private
   def add_lovely_to_cat
     self.name = self.name.gsub(/Cat/) do |matched|
