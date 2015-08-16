@@ -5,6 +5,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html
       format.csv
+      format.xml { render xml: @book }
     end
   end
 
