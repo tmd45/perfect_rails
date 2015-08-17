@@ -29,15 +29,15 @@ class Book < ActiveRecord::Base
     Rails.logger.warn "Plese check!!"
   end
 
+  def high_price?
+    self.price >= 5000
+  end
+
   private
 
   def add_lovely_to_cat
     self.name = self.name.gsub(/Cat/) do |matched|
       "lovely #{matched}"
     end
-  end
-
-  def high_price?
-    self.price >= 5000
   end
 end
