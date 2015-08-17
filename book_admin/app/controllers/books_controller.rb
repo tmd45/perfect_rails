@@ -3,9 +3,7 @@ class BooksController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html
-      format.csv
-      format.xml { render xml: @book }
+      format.json
     end
   end
 
