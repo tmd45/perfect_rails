@@ -1,4 +1,7 @@
 require 'sprockets'
+require 'coffee-script'
+require 'therubyracer'
+require 'sass'
 
 map '/assets' do
   environment = Sprockets::Environment.new
