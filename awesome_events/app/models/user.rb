@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :created_events, class_name: 'Event', foreign_key: :owner_id
+
   # Find or Create from OmniAuth::AuthHash
   #
   # @param auth_hash [OmniAuth::AuthHash]
