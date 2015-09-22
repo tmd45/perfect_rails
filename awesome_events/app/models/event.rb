@@ -9,6 +9,14 @@ class Event < ActiveRecord::Base
   validates :end_time, presence: true
   validate :start_time_should_be_before_end_time
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w(name start_time)
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
+
   def created_by?(user)
     return false unless user
     owner_id == user.id
