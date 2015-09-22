@@ -37,6 +37,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 2.8.0'
+end
+
 group :development do
   gem 'spring'
   # gem 'capistrano-rails'
