@@ -22,4 +22,20 @@ RSpec.describe Event, type: :model do
       it { should be_truthy }
     end
   end
+
+  describe '#rails?' do
+    context 'when #name is "Rails勉強会"' do
+      it 'is true' do
+        event = create(:event, name: 'Rails勉強会')
+        expect(event.rails?).to be_truthy
+      end
+    end
+
+    context 'when #name is "Ruby勉強会"' do
+      it 'is false' do
+        event = create(:event, name: 'Ruby勉強会')
+        expect(event.rails?).to be_falsey
+      end
+    end
+  end
 end
